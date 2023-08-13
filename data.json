@@ -1,0 +1,37 @@
+[{
+    "id":0,
+    "src":"assets/img/1.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
+},
+{
+    "id":1,
+    "src":"assets/img/2.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Icewatch"
+},
+{
+    "id":3,
+    "src":"assets/img/2.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
+},
+{
+    "id":4,
+    "src":"assets/img/2.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Icewatch"
+}
+]

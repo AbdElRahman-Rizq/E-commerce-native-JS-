@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/8f27d68390.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header" id="header">
+
+    <nav class="nav">
+      <a href="#" class="nav__logo">
+        <i class='fa fas-watch nav__logo-icon'></i> Rolex
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#products" class="nav__link">Products</a>
+          </li>
+          <li class="nav__item">
+            <a href="#new" class="nav__link">About us</a>
+          </li>
+          <li class="nav__item">
+            <a href="#new" class="nav__link">contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="login">
+
+        <div class="nav__link">
+          log in
+        </div>
+        <div class="cart-icon">
+          <i class='fa fa-shopping-bag'></i>
+        </div>
+        <div id="" class="cart-box hide">
+          <i class='fa fa-x cart__close' id="cart-close"></i>
+          <div class="whole-cart-window ">
+            <h2>Shopping Cart</h2>
+            <div id="cart-wrapper"></div>
+            <div>
+              <p>Total Items: <span id="count">0</span></p>
+              <p>Total Price: <span id="total">$0.00</span></p>
+              <button id="checkout-btn">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+<!-- ======slider========= -->
+<div id="slider">
+  <button id="prevButton"><i class="fas fa-chevron-left add-to-cart-btn"></i></button>
+  <button id="nextButton"><i class="fas fa-chevron-right"></i></button>
+</div>
+<!-- <div id="login-form">
+  <h2>Login</h2>
+  <form id="login-form-validate">
+    <label for="login-email">Email:</label>
+    <input type="email" id="login-email" required>
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+ -->
+
+ <div>
+  <button class="filter-btn" data-category="all">All</button>
+  <button class="filter-btn" data-category="Swatch">Swatch</button>
+  <button class="filter-btn" data-category="Icewatch">Icewatch</button>
+</div>
+<div id="productContainer"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button id="back-to-top-btn">Top</button>
+<!-- ==================================== -->
+<script>
+
+
+
+  // Function to display the greeting message
+  function displayGreeting(name) {
+    const greeting = document.getElementById('greeting');
+    greeting.textContent = `Hi ${name}`;
+  }
+  // Function to handle login form submission
+  function handleLoginFormSubmit(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
+    
+    if (!email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    const user = {
+        name: getCookie("name"),
+        email: getCookie(email),
+      };
+      console.log(user.name)
+    // Perform login logic here
+    // ...
+
+   
+    displayGreeting(user.name);
+  }
+
+  // Function to handle signup form submission
+  function handleSignupFormSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('signup-name').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    const password = document.getElementById('signup-password').value.trim();
+
+    if (!name || !email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    // Perform additional signup validation here
+    // ...
+
+    // Simulating user already exists in localStorage
+    if (getCookie(email)) {
+      alert('User with this email already exists.');
+      return;
+    }
+
+ 
+    
+    displayGreeting(name);
+
+    // Save user to localStorage
+    setCookie("name",name);
+    setCookie("email",email);
+    setCookie("password",password);
+  }
+
+  // Attach event listeners to the login and signup forms
+  document.getElementById('login-form-validate').addEventListener('submit', handleLoginFormSubmit);
+  document.getElementById('signup-form-validate').addEventListener('submit', handleSignupFormSubmit);
+
+</script>
+  <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
