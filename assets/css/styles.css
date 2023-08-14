@@ -125,7 +125,9 @@ button {
   align-items: center;
   column-gap: .25rem;
 }
-
+.active{
+  color: #fff;
+}
 .nav__logo-icon {
   font-size: 1.25rem;
 }
@@ -141,7 +143,9 @@ button {
   color: #000;
   cursor: pointer;
 }
-
+.name{
+  color: #fafafaec;
+}
 /* ======= cart =============== */
 .cart-icon{
   text-align: right;

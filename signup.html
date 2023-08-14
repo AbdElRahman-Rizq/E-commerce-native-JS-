@@ -8,11 +8,15 @@
  
 <body> 
     <h2>SIGN UP</h2> 
-    <form id="loginForm" > 
-     
-      <div class="error-message" id="userError"></div>
+    <form id="registrationForm" > 
+      <div>
+        <label for="name">Name:</label> 
+        <input type="text" id="name" name="name"  class="input" required>
+        <div class="error-message" id="nameError"></div>
+      </div>
 
       <div>
+
         <label for="email">Email:</label> 
         <input type="email" id="email" name="email" class="input" required>
         <div class="error-message" id="emailError"></div>
@@ -23,10 +27,15 @@
           <input type="password" id="password" name="password" class="input" required>
           <div class="error-message" id="passwordError"></div>
         </div>
-        
+        <div>
+          
+          <label for="password">Confirm password:</label> 
+          <input type="password" id="confirmPassword" name="password" class="input" required>
+          <div class="error-message" id="confirmError"></div>
+        </div>
         
         <p class="form__text">
-          Doesn't have an account?<a class="form__link" href="./signup.html" > signup</a>
+          Do You have an account?<a class="form__link" href="./login.html" > login</a>
       </p>
   
   <!-- Add more countries here as needed -->
@@ -38,7 +47,7 @@
     </form> 
  
  <script src="/assets/js/cookies.js" type="module"></script>
- <script src="/assets/js/login.js" type="module"></script>
+ <script src="/assets/js/signup.js" type="module"></script>
 </body> 
  
 </html>
