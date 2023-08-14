@@ -1,3 +1,24 @@
+/*========= signup & logOut ==============*/
+import { getCookie,deleteCookie } from "./cookies.js";
+let signup=document.getElementById("signup");
+let logOut=document.getElementById("logOut");
+let findUser=document.getElementById("findUser");
+if(getCookie("name")) {
+  signup.classList.add("hide")
+  logOut.classList.remove("hide")
+  var hiName=document.createElement("p");
+  hiName.classList="name"
+hiName.innerHTML=`${getCookie("name")}`
+findUser.before(hiName);
+}
+else{ signup.classList.remove("hide")
+logOut.classList.add("hide")}
+// logout
+logOut.addEventListener("click",()=>{
+  deleteCookie("name");
+  signup.classList.remove("hide")
+  findUser.classList.add("hide")
+})
 /*===============SLider===================*/
 
 async function getImgs(){
@@ -46,7 +67,7 @@ async function getImgs(){
       sliderInterval = setInterval(function() {
             currentIndex = (currentIndex + 1) % imgsArr.length;
             updateSlider();
-          }, 4000);
+          }, 2500);
           
         }
       
@@ -163,7 +184,7 @@ class LocalCart {
           <div class="button minus-btn"><i class="fas fa-minus"></i></div>
           <div class="button plus-btn"><i class="fas fa-plus"></i></div>
         </div>
-        <div class="cancel"><i class="fas fa-window-close"></i></div>
+        <div class="cancel"><i class="fa fa-trash-alt cart__amount-trash"></i></div>
       `;
       cartItem.innerHTML = itemHTML;
 

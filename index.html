@@ -39,10 +39,14 @@
           </li>
         </ul>
       </div>
-      <div class="login">
-
-        <div class="nav__link">
-          log in
+      <div class="rightNav">
+        <div class="nav__link" id="signup">
+          <a href="signup.html"> Signup</a>
+        </div>
+        <div id="findUser">
+          <div class="nav__link" id="logOut">
+            log out
+          </div>
         </div>
         <div class="cart-icon">
           <i class='fa fa-shopping-bag'></i>
@@ -137,44 +141,10 @@
     displayGreeting(user.name);
   }
 
-  // Function to handle signup form submission
-  function handleSignupFormSubmit(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('signup-name').value.trim();
-    const email = document.getElementById('signup-email').value.trim();
-    const password = document.getElementById('signup-password').value.trim();
-
-    if (!name || !email || !password) {
-      alert('Please fill in all fields.');
-      return;
-    }
-
-    // Perform additional signup validation here
-    // ...
-
-    // Simulating user already exists in localStorage
-    if (getCookie(email)) {
-      alert('User with this email already exists.');
-      return;
-    }
-
- 
-    
-    displayGreeting(name);
-
-    // Save user to localStorage
-    setCookie("name",name);
-    setCookie("email",email);
-    setCookie("password",password);
-  }
-
-  // Attach event listeners to the login and signup forms
-  document.getElementById('login-form-validate').addEventListener('submit', handleLoginFormSubmit);
-  document.getElementById('signup-form-validate').addEventListener('submit', handleSignupFormSubmit);
 
 </script>
-  <script src="/assets/js/main.js"></script>
+<script src="assets/js/cookies.js" type="module"></script>
+  <script src="/assets/js/main.js" type="module"></script>
 </body>
 
 </html>
