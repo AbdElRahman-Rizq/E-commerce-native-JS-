@@ -1,24 +1,27 @@
 [{
     "id":0,
-    "src":"assets/img/1.webp",
-    "title":"SWATCH - BBBLACK - SO27B100",
-    "price":"EGP 4,870.00",
+    "slider":"assets/img/5.webp",
+    "src":"assets/img/5.webp",
+    "title":"TISSOT - SUPERSPORT CHRONO VUELTA",
+    "price":"EGP 19,710.00",
     "amount":"10",
     "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
-    "category":"Swatch"
+    "category":"Tissot"
 },
 {
     "id":1,
+    "slider":"assets/img/4.webp",
     "src":"assets/img/2.webp",
-    "title":"SWATCH - BBBLACK - SO27B100",
-    "price":"EGP 4,870.00",
-    "amount":"10",
-    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
-    "category":"Icewatch"
+    "title":"Casio - Youth - F-91WS-7DF",
+    "price":"EGP 1,525.00",
+    "amount":"12",
+    "info":"Casio watches are technologically advanced and equipped with functions that meet the requirements of all kinds of sports and all kinds of people. Casio watch - the watch for everyone! Casio is proud to present it's outstanding collection of Casio watches which fall under the standard collection range. These models are great value for money and are made with Casio's usual outstanding quality.",
+    "category":"Casio"
 },
 {
     "id":3,
-    "src":"assets/img/2.webp",
+    "slider":"assets/img/product1.png",
+    "src":"assets/img/3.webp",
     "title":"SWATCH - BBBLACK - SO27B100",
     "price":"EGP 4,870.00",
     "amount":"10",
@@ -27,11 +30,52 @@
 },
 {
     "id":4,
-    "src":"assets/img/2.webp",
+    "slider":"assets/img/product2.png",
+    "src":"assets/img/4.webp",
     "title":"SWATCH - BBBLACK - SO27B100",
     "price":"EGP 4,870.00",
     "amount":"10",
     "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
     "category":"Icewatch"
+},
+{
+    "id":5,
+    "slider":"assets/img/product3.png",
+    "src":"assets/img/5.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
+},
+{
+    "id":6,
+    "slider":"assets/img/product4.png",
+    "src":"assets/img/6.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
+},
+{
+    "id":7,
+    "slider":"assets/img/product5.png",
+    "src":"assets/img/5.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
+},
+{
+    "id":8,
+    "slider":"assets/img/featured1.png",
+    "src":"assets/img/2.webp",
+    "title":"SWATCH - BBBLACK - SO27B100",
+    "price":"EGP 4,870.00",
+    "amount":"10",
+    "info":"The Swatch, BBBlack series features a plastic 47mm case, with a fixed bezel, a black dial. This beautiful wristwatch powered by quartz movement supporting: This watch has a water resistance of up to 100 feet/30 meters, suitable for short periods of recreational swimming. This stylish timepiece is sure to complete any man's collection.",
+    "category":"Swatch"
 }
 ]

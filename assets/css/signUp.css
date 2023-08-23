@@ -1,0 +1,70 @@
+
+/*=================== signup =============================*/
+h2{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+    color: var(--first-color);
+}
+form {
+    width: 350px;
+    margin: 0 auto;
+    background-color: #cccccc4f;
+    padding: 3%;
+    border-radius: 4px;
+  }
+  
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]
+  {
+    display: block;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  input[type="submit"]{
+    background-color: var(--first-color);
+    margin-left: 105px !important;
+    margin-bottom: 4%;
+  }
+  input[type="submit"]:hover {
+    background-color: hsl(31deg 96.14% 63.04%);
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  /* Buttons */
+  input[type="submit"],input[type="reset"] {
+    color: #fff;
+    padding: 9.2px 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .loginSubmit{
+    margin-left: 105px !important;
+  }
+  .form__link{
+  font-size: 1.15em;
+}
+  .form__link:hover{
+    color: var(--first-color);
+    transition: ease-in-out .5s;
+  }
+  

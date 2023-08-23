@@ -4,10 +4,11 @@
 <head> 
     <title>signup</title> 
    <link rel="stylesheet" href="/assets/css/styles.css">
+   <link rel="stylesheet" href="/assets/css/signUp.css">
 </head> 
  
 <body> 
-    <h2>SIGN UP</h2> 
+    <h2>CREATE ACCOUNT</h2> 
     <form id="registrationForm" > 
       <div>
         <label for="name">Name:</label> 
@@ -34,16 +35,17 @@
           <div class="error-message" id="confirmError"></div>
         </div>
         
-        <p class="form__text">
-          Do You have an account?<a class="form__link" href="./login.html" > login</a>
-      </p>
+       
   
   <!-- Add more countries here as needed -->
 </select>
 
 
         <input type="submit" id="btnSubmit" value="Submit"> 
-        <input type="reset" id="btnReset" value="Reset"> 
+        <!-- <input type="reset" id="btnReset" value="Reset">  -->
+        <p class="form__text">
+          Do You have an account?<a class="form__link" href="./login.html" > login</a>
+      </p>
     </form> 
  
  <script src="/assets/js/cookies.js" type="module"></script>

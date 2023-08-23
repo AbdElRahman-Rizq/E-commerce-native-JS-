@@ -1,5 +1,5 @@
 /*========= signup & logOut ==============*/
-import { getCookie,deleteCookie } from "./cookies.js";
+import { getCookie,deleteCookie, setCookie } from "./cookies.js";
 let signup=document.getElementById("signup");
 let logOut=document.getElementById("logOut");
 let findUser=document.getElementById("findUser");
@@ -26,77 +26,7 @@ logOut.addEventListener("click",()=>{
   logOut.classList.add("hide")
   UserName.classList.add("hide")
 })
-/*===============SLider===================*/
 
-async function getImgs(){
-    try{
-  
-      var jsonData=await fetch('../data.json')
-      
-      let data=await jsonData.json();
-      
-      let imgs =data.map(function(item) {
-        return item.src;
-       });
-       setImgsArray(imgs);
-       startInterval()
-     }
-     catch{
-       console.log("Data not found");
-     }
-  }
-  
-  let imgsArr=[];
-  getImgs();
-  
-  let setImgsArray= (imgs)=>{
-  imgsArr.push(...imgs)
-  return console.log(imgsArr);
-  }
-  
-  //   ==================== Update slider ============
-  
-  var prevButton = document.getElementById('prevButton');
-  var nextButton = document.getElementById('nextButton');
-  var currentIndex = 0;
-  var sliderInterval;
-  
-  
-  
-  
-   function updateSlider() {
-      
-    var slider = document.getElementById('slider');
-    slider.style.backgroundImage = 'url(' + imgsArr[currentIndex] + ')';
-   }
-   
-  function startInterval() {
-      sliderInterval = setInterval(function() {
-            currentIndex = (currentIndex + 1) % imgsArr.length;
-            updateSlider();
-          }, 2500);
-          
-        }
-      
-      function resetInterval() {
-          clearInterval(sliderInterval);
-          startInterval();
-      }
-  //   ===================Previous & Next Btns===================
-  prevButton.addEventListener('click', function() {
-    
-    currentIndex = (currentIndex - 1 + imgsArr.length) % imgsArr.length;
-    updateSlider();
-    resetInterval();
-  });
-  
-  nextButton.addEventListener('click', function() {
-    
-     currentIndex = (currentIndex + 1) % imgsArr.length;
-      updateSlider();
-      resetInterval();
-    });
-  
 /*===== open & close Cart =====================*/
 var cartClose=document.querySelector(".cart__close");
 document.addEventListener('DOMContentLoaded', () => {
@@ -118,12 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ========= Add to cart ============ */
+function renderCartItem(newCartCount){ // the number of items in cart
+  let cartIcons = document.querySelectorAll('.cart-count-indicator');
+  cartIcons.forEach(icon => {
+    icon.innerHTML = newCartCount;
+  });
+}
+
+(function(){
+  renderCartItem(0);
+})();
 class CartItem {
-  constructor(id, name, img, price, quantity) {
+  constructor(id, name, img, price, amount,quantity) {
     this.id = id;
     this.name = name;
     this.img = img;
     this.price = price;
+    this.amount = amount;
     this.quantity = quantity;
   }
 }
@@ -134,18 +75,21 @@ class LocalCart {
   }
 
   addItemToLocalCart(id, item) {
-    if (this.cartItems.has(id)) {
-      const existingItem = this.cartItems.get(id);
-      existingItem.quantity += 1;
-    } else {
-      item.quantity = 1;
+    if (item.quantity==item.amount) {
       this.cartItems.set(id, item);
     }
+      else{
+        
+        item.quantity += 1;
+        this.cartItems.set(id, item);
+      }
+    
     this.updateCartUI();
   }
 
   removeItemFromCart(id) {
     this.cartItems.delete(id);
+    localStorage.removeItem(`ProductId${id}`);
     this.updateCartUI();
   }
 
@@ -153,6 +97,7 @@ class LocalCart {
     const existingItem = this.cartItems.get(id);
     if (existingItem.quantity > 1) {
       existingItem.quantity -= 1;
+     
     } else {
       this.cartItems.delete(id);
     }
@@ -173,9 +118,12 @@ class LocalCart {
     this.cartItems.forEach((value, key) => {
       const price = value.price * value.quantity;
       count += value.quantity;
+      
       total += price;
 
       const cartItem = document.createElement('div');
+const line = document.createElement('div'); // Line will use in Cart items
+
       cartItem.classList.add('cart-item');
       cartItem.setAttribute('data-id', key);
       const itemHTML = `
@@ -194,7 +142,9 @@ class LocalCart {
         <div class="cancel"><i class="fa fa-trash-alt cart__amount-trash"></i></div>
       `;
       cartItem.innerHTML = itemHTML;
-
+      line.classList.add('lineCart');
+      // cartItem.appendChild(line)
+      // cartWrapper.after(line)
       const minusBtn = cartItem.querySelector('.minus-btn');
       const plusBtn = cartItem.querySelector('.plus-btn');
       const cancelBtn = cartItem.querySelector('.cancel');
@@ -209,32 +159,48 @@ class LocalCart {
 
       cancelBtn.addEventListener('click', () => {
         this.removeItemFromCart(key);
+        
       });
 
       cartWrapper.appendChild(cartItem);
+      // cartWrapper.appendChild(line)
+      cartItem.after(line)
     });
 
     const countElement = document.getElementById('count');
     const totalElement = document.getElementById('total');
     countElement.textContent = count;
+      renderCartItem(count);// number of items
     totalElement.textContent = `$ ${total.toFixed(2)}`;
   }
 }
 
 const LocalCartInstance = new LocalCart();
+// let cartCount =parseInt(getCookie("cartItems"));
 
 function addItemFunction(e) {
+
   const id = e.target.closest('.card').getAttribute('id');
   const img = e.target.closest('.card').querySelector('img').src;
-  const name = e.target.closest('.card').querySelector('h3').textContent;
+  const name = e.target.closest('.card').querySelector('h4').textContent;
   const price = e.target.closest('.card').querySelector('.price').textContent;
-  const quantity = 1;
-  let newPrice = price.replace("EGP", "").trim().replace(",", '');
+  const amount = e.target.closest('.card').querySelector('.price').getAttribute('id');
+  const remove = e.target.closest('.card').querySelector('#removeBtn');
 
-  const item = new CartItem(id, name, img, parseInt(newPrice), quantity);
-  LocalCartInstance.addItemToLocalCart(id, item);
+  const quantity=0;
+ sendToCart(id,name, img, price,amount,quantity)
+  e.target.classList.add("hide");
+remove.classList.remove("hide")
 }
 
+
+export function sendToCart(id,name, img, price,amount,quantity){
+  let newPrice = price.replace("EGP", "").trim().replace(",", '');
+localStorage.setItem(`ProductId${id}`,true)
+const item = new CartItem( id,name, img, parseInt(newPrice), amount,quantity);
+  LocalCartInstance.addItemToLocalCart( id,item);
+  setCookie("added",id)
+}
 /* ========= PRODUCTS CARDS ============ */
 document.addEventListener("DOMContentLoaded", function() {
   var productContainer = document.getElementById("productContainer");
@@ -246,12 +212,23 @@ document.addEventListener("DOMContentLoaded", function() {
   .then(data => {
     // Initial rendering of all products
     renderProducts(data);
-    addEventListenersToButtons();
+    
 
     // Add click event listeners to filter buttons
     Array.from(filterBtns).forEach(function(btn) {
       btn.addEventListener("click", function() {
         var category = btn.getAttribute("data-category");
+        setCookie("filterBtn",category);
+        let activeBtn=document.querySelectorAll("[data-category]");
+  activeBtn.forEach((i)=> 
+  {
+    if (i.getAttribute("data-category")=== getCookie("filterBtn")) {
+      i.classList.add("activeBtn")
+      console.log(i.getAttribute("data-category"));
+    }else
+    i.classList.remove("activeBtn")
+  })
+  // console.log(activeBtn);
         filterProducts(data, category);
       });
     });
@@ -268,22 +245,16 @@ function renderProducts(data) {
   });
 }
 
-function addEventListenersToButtons() {
-  var addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
-
-  Array.from(addToCartBtns).forEach(function(btn) {
-    btn.addEventListener("click", addItemFunction);
-  });
-}
-
-
 
 function filterProducts(data, category) {
+  
   var filteredProducts = data.filter(function(product) {
+
     return product.category === category;
   });
 
   renderProducts(filteredProducts);
+  
 }
 
 function createCard(product) {
@@ -295,36 +266,52 @@ function createCard(product) {
   image.src = product.src;
   card.appendChild(image);
 
-  var title = document.createElement("h3");
+  var title = document.createElement("h4");
   title.textContent = product.title;
   card.appendChild(title);
 
   var price = document.createElement("p");
   price.setAttribute("class", "price");
+  price.setAttribute("id", product.amount);
   price.textContent = product.price;
   card.appendChild(price);
 
-  var btn = document.createElement("button");
-  btn.setAttribute("class", "add-to-cart-btn");
-  btn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
-  card.appendChild(btn);
 
+  var addBtn = document.createElement("button");
+  addBtn.setAttribute("class", "add-to-cart-btn");
+  addBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Add to cart`;
+  
+
+  // Remove Item
+  var removeBtn = document.createElement("button");
+
+  removeBtn.setAttribute("id", "removeBtn");
+  card.appendChild(removeBtn);
+  removeBtn.innerHTML = `Added`;
+  // setInterval(()=>{
+    if (!localStorage.getItem(`ProductId${product.id}`)) {
+      card.appendChild(addBtn);
+      removeBtn.classList.add("hide")
+    }else
+    removeBtn.classList.remove("hide")
+  // },5000)
   return card;
 }
   
   function renderProducts(products) {
     productContainer.innerHTML = "";
-
     products.forEach(function(product) {
       var card = createCard(product);
       productContainer.appendChild(card);
     });
-  }
+    addEventListenersToButtons();
+}
 
   function filterProducts(products, category) {
     var filteredProducts = [];
 
     if (category === "all") {
+
       filteredProducts = products;
     } else {
       filteredProducts = products.filter(function(product) {
@@ -337,11 +324,24 @@ function createCard(product) {
 
   function addEventListenersToButtons() {
     var addButtons = document.querySelectorAll(".add-to-cart-btn");
+    var productImg = document.querySelectorAll("img");
     addButtons.forEach((button) => {
       button.addEventListener('click', addItemFunction);
     });
+    //*======== Send product id & go to product details ======= */
+    productImg.forEach((button) => {
+      button.addEventListener('click', getProductId);
+    });
   }
 });
+
+function getProductId(e){
+  const id = e.target.closest('.card').getAttribute('id');
+  console.log(id);
+  setCookie("productID",id)
+window.open("./products.html","_self");
+}
+/*======== backToTopBtn ========== */
 var backToTopBtn = document.querySelector("#back-to-top-btn");
 
 backToTopBtn.addEventListener("click", () => {

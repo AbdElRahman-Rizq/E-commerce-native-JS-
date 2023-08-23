@@ -25,17 +25,17 @@
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li class="nav__item">
-            <a href="#home" class="nav__link active-link">Home</a>
+            <a href="#home" class="nav__link active">Home</a>
           </li>
 
           <li class="nav__item">
-            <a href="#products" class="nav__link">Products</a>
+            <a href="#productContainer" class="nav__link">Products</a>
           </li>
           <li class="nav__item">
-            <a href="#new" class="nav__link">About us</a>
+            <a href="/about.html" class="nav__link">About us</a>
           </li>
           <li class="nav__item">
-            <a href="#new" class="nav__link">contact us</a>
+            <a href="/contactUs.html" class="nav__link">contact us</a>
           </li>
         </ul>
       </div>
@@ -50,6 +50,7 @@
         </div>
         <div class="cart-icon">
           <i class='fa fa-shopping-bag'></i>
+          <span class="cart-count-indicator"></span>
         </div>
         <div id="" class="cart-box hide">
           <i class='fa fa-x cart__close' id="cart-close"></i>
@@ -69,7 +70,7 @@
   </header>
 <!-- ======slider========= -->
 <div id="slider">
-  <button id="prevButton"><i class="fas fa-chevron-left add-to-cart-btn"></i></button>
+  <button id="prevButton"><i class="fas fa-chevron-left"></i></button>
   <button id="nextButton"><i class="fas fa-chevron-right"></i></button>
 </div>
 <!-- <div id="login-form">
@@ -84,67 +85,50 @@
 </div>
  -->
 
- <div>
-  <button class="filter-btn" data-category="all">All</button>
+ <div class="filter-btns">
+  <button class="filter-btn activeBtn" data-category="all">All</button>
   <button class="filter-btn" data-category="Swatch">Swatch</button>
   <button class="filter-btn" data-category="Icewatch">Icewatch</button>
+  <button class="filter-btn" data-category="Casio">Casio</button>
 </div>
+
 <div id="productContainer"></div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button id="back-to-top-btn">Top</button>
+  <!-- ==== FOOTER ==== -->
+  <footer>
+    <div class="line">
+    </div>
+    <section class="innerFooter">
+      
+      <div id="SITE_STRUCTURE_WRichText_1" class="rizqStore" data-testid="richTextElement"><p class="font_9 wixui-rich-text__text" style="font-size:14px;">© 2023 by EgyWatch. Powered and secured by <span style="text-decoration:underline;" class="wixui-rich-text__text"><a href='./index.html'>Rizq store</a></span></p>
+      </div>
+      <ul class="list-inline social-buttons">
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+      </ul>
+  </section>
+  </footer>
+<button id="back-to-top-btn"><i class="fa-solid fa-arrow-up"></i></button>
 <!-- ==================================== -->
-<script>
-
-
-
-  // Function to display the greeting message
-  function displayGreeting(name) {
-    const greeting = document.getElementById('greeting');
-    greeting.textContent = `Hi ${name}`;
-  }
-  // Function to handle login form submission
-  function handleLoginFormSubmit(event) {
-    event.preventDefault();
-
-    const email = document.getElementById('login-email').value.trim();
-    const password = document.getElementById('login-password').value.trim();
-    
-    if (!email || !password) {
-      alert('Please fill in all fields.');
-      return;
-    }
-    const user = {
-        name: getCookie("name"),
-        email: getCookie(email),
-      };
-      console.log(user.name)
-    // Perform login logic here
-    // ...
-
-   
-    displayGreeting(user.name);
-  }
-
-
-</script>
 <script src="assets/js/cookies.js" type="module"></script>
-  <script src="/assets/js/main.js" type="module"></script>
+<script src="/assets/js/main.js" type="module"></script>
+<!-- <script src="/assets/js/productCard.js" type="module"></script> -->
+  <script src="/assets/js/slider.js" type="module"></script>
 </body>
 
 </html>

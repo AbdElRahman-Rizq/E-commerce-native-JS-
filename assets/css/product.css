@@ -1,0 +1,70 @@
+#products{
+  display: flex;
+  height: 400px;
+  margin-top: 8%;
+}
+#productImg{
+  width: 40%;
+
+}
+#productImg img{
+  width: 65%;
+}
+#details h2,#details h4,#details h5{
+  margin-bottom: 3%;
+}
+#quantity-buttons{
+  display: flex;
+  font-size: .9em;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 20%;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+}
+#quantity-buttons #quantityNum{
+  flex-grow: 1;
+  text-align: center;
+  padding: 5% 5%;
+  font-size: 1.3em;
+}
+#plus-btn,#minus-btn{
+  cursor: pointer;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 5% 7%;
+  padding-top: 7%;
+}
+#plus-btn{
+  background-color: black;
+  /* width: 15%; */
+}
+#minus-btn{
+  background-color: gray;
+}
+.addToCartBtn,.added{
+  background-color: rgb(193, 196, 193);
+  border: 1px solid rgb(194, 197, 194);
+  color: white;
+  text-align: center;
+  padding: 3%;
+  margin: 20% 0;
+  border-radius: 2px;
+  width: 50%;
+}
+.addToCartBtn{
+cursor: pointer;
+  background-color: green;
+  border: 1px solid green;
+}
+.addToCartBtn:hover{
+  background-color: rgba(0, 128, 0, 0.692);
+  border: 1px solid rgba(0, 128, 0, 0.692);
+}
+.infoSection{
+  width: 95%;
+  margin: 0% 1% 2% 2%;
+}
+.infoSection h2{
+  margin-bottom: 1%;
+  color: hsl(31deg 100% 50%);
+}
