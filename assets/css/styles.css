@@ -7,7 +7,7 @@
 --title-color: hsl(0, 0%, 15%);
 --text-color: hsl(0, 0%, 35%);
 --text-color-light: hsl(0, 0%, 55%);
---body-color: hsl(0, 0%, 100%);
+--body-color: hsla(0, 0%, 100%, 0.945);
 --container-color: #fff;
 --border-color: hsl(0, 0%, 94%);
 
@@ -432,7 +432,7 @@ margin-top: 5%;
   font-size: 18px;
   padding: 10px 11px 9px 11px;
   border-radius: 50%;
-  background-color: var(--container-color);
+  background-color: transparent;
   color: #000;
   cursor: pointer;
   z-index: 100;
@@ -447,6 +447,7 @@ margin-top: 5%;
 footer{
   width: 100%;
   background-color: var(--border-color);
+  padding-bottom: .5%;
   z-index: 1;
 }
 footer .line{

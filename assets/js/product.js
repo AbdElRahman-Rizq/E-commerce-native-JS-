@@ -1,6 +1,6 @@
 
 import { getCookie } from "./cookies.js";
- import { sendToCart } from "./main.js"; 
+ import { sendToCart } from "./cart.js"; 
 
 
  // Load JSON data
@@ -106,11 +106,14 @@ plusBtn.addEventListener('click', addFun);
 addToCartBtn.addEventListener("click",()=>{ // When click addToCartBtn
   //1-  Remove Event Listener
 minusBtn.removeEventListener('click',minusFun );
-  plusBtn.removeEventListener('click', addFun);
-  //2-  Hide button Add to cart & Show btn Added
-  addToCartBtn.classList.add("hide")
-  added.classList.remove("hide")
-  //3-  Add item to cart
+plusBtn.removeEventListener('click', addFun);
+  //2-  Hide button "Add to cart" & Show btn "Added"
+addToCartBtn.classList.add("hide")
+added.classList.remove("hide")
+  //3-Add class preventClick 
+minusBtn.classList.add("preventClick")
+plusBtn.classList.add("preventClick")
+  //4-  Add item to cart
   sendToCart(id,title,src,price,amount,parseInt(quantity-1))})
 }
 

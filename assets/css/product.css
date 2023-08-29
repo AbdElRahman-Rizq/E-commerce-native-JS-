@@ -41,6 +41,9 @@
 #minus-btn{
   background-color: gray;
 }
+.preventClick{
+  cursor: not-allowed !important;
+}
 .addToCartBtn,.added{
   background-color: rgb(193, 196, 193);
   border: 1px solid rgb(194, 197, 194);

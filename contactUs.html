@@ -57,19 +57,17 @@
     </header>
 
     <div id="contact">
-      <div class="container">
           <h2 class="drop-title"><span>Drop </span>Me A line</h2>
           <form action="#" onsubmit="onSubmit()">
               <div class="form-input">
-                  <input type="text" placeholder="Your Name" required>
+                  <input type="text" placeholder="Your Name" id="nameInput" required >
                   <input type="email" placeholder="Your Email" required>
                   <div class="error-message" id="error"></div>        
       </div>
               <input type="text" class="sub" placeholder="Your Subject">
               <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
-              <input type="submit" value="Send Message">
+              <input type="submit" id="submit" value="Send Message">
           </form>
-      </div>
     </div>
       
     <!-- <button id="back-to-top-btn">Top</button> -->
@@ -102,28 +100,23 @@
     </footer>
     <!-- === Scripts === -->
     <script src="assets/js/cookies.js" type="module"></script>
-    <script src="assets/js/main.js" type="module"></script>
+  <script src="/assets/js/nav.js" type="module"></script>
   <script>
-    function onSubmit(e){
-      
-  // Regular expression for email validation
-  var emailRegex = /^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
-      // e.preventDefault();
-      let nameInput=document.querySelector("input[type='text']").value;
-      let emailInput=document.querySelector("input[type='email']").value;
-      let errorMessage=document.querySelector("#error");
-      console.log(nameInput);
-      if (!isNaN(nameInput)) {
-        errorMessage.innerHTML=`Name should have characters only`
-      }else if (!emailRegex.test(emailInput)) {
-        errorMessage.innerHTML="Invalid email address. Please enter a valid email.";
-      }
-      else {
-        errorMessage.innerHTML=" ";
-        alert("Your message is sent!")
-      }
-    }
-  </script>
+     let onSubmit= ()=>{
+    const nameInput = document.getElementById('nameInput');
+    const errorDiv = document.getElementById('error');
   
+      const inputValue = nameInput.value;
+      const containsNumber = /\d/.test(inputValue);  
+      if (containsNumber) {
+        errorDiv.textContent = 'Please enter a valid name without numbers.';
+      } else {
+        errorDiv.textContent = '';
+        alert("Your Message is sent!")
+      }
+
+    }
+
+  </script>
   </body>
 </html>
